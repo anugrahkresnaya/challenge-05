@@ -3,9 +3,9 @@ const app = express();
 const port = 8000;
 
 const path = require('path');
-const PUBLIC_DIRECOTRY = path.join(__dirname, 'public');
+const PUBLIC_DIRECTORY = path.join(__dirname, 'public');
 
-app.use(express.static(PUBLIC_DIRECOTRY));
+app.use(express.static(PUBLIC_DIRECTORY));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
