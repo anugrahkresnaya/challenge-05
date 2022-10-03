@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="/css/style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a5da55aa11.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -51,15 +54,21 @@
         </div>
         <div class="col vh-100 pe-0 ps-0 col-size">
           <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item">Cars</li>
-              <li class="breadcrumb-item active" aria-current="page"><a href="#">List Car</a></li>
+            <ol class="breadcrumb mt-5">
+              <li class="breadcrumb-item fw-bold">Cars</li>
+              <li class="breadcrumb-item" id="list-car-breadcrumb" aria-current="page"><a href="#">List Car</a></li>
             </ol>
           </nav>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between mb-3">
             <h1 class="list-car-title">List Car</h1>
-            <button class="btn-blue">Add New Car</button>
+            <button class="btn-blue"><i class="fa fa-plus" aria-hidden="true"></i>Add New Car</button>
           </div>
+          <nav class="mb-4">
+            <a class="link-square me-3" aria-current="page" href="#">All</a>
+            <a class="link-square me-3" href="#">Small</a>
+            <a class="link-square me-3" href="#">Medium</a>
+            <a class="link-square" href="#">Large</a>
+          </nav>
           <div class="row">
             <div class="col">
               <div class="card">

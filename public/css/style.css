@@ -104,9 +104,41 @@
   margin-bottom: 0;
 }
 
+#list-car-breadcrumb {
+  --bs-link-color: black;
+}
+
+#list-car-breadcrumb a {
+  text-decoration: none;
+}
+
 .btn-blue {
   background-color: #0D28A6;
   width: 144px;
   height: 36px;
   color: white;
+  font-size: 14px;
+}
+
+.fa-plus {
+  margin-right: 12px;
+}
+
+.link-square {
+  border: 1px solid #0D28A6;
+  border-radius: 2px;
+  color: #0D28A6;
+  font-family: 'Overpass', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  text-decoration: none;
+  padding: 8px 12px 8px;
+}
+
+.link-square:hover {
+  background-color: #0D28A6;
+  transition-duration: 1s;
+  color: white;
+  cursor: pointer;
 }
