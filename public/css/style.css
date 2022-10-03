@@ -14,17 +14,16 @@ body {
 
 .navbar-left {
   background-color: #0D28A6;
-  overflow-y: hidden;
 }
 
 .navbar-sticky-top {
-  overflow-x: hidden;
   z-index: 10;
   background-color: white;
 }
 
 .nav-collapsed {
   background-color: white;
+  height: 100%;
 }
 
 .padding-start {
