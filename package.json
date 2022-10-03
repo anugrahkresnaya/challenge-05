@@ -2,6 +2,9 @@
   "name": "challenge-05",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
   "author": "Anugrah Kresnaya <anugrahkresnaya.ak@gmail.com>",
   "license": "MIT",
   "dependencies": {
