@@ -184,3 +184,7 @@ body {
   width: 143.5px;
   height: 48px;
 }
+
+.dropdown-toggle {
+  padding: 0 !important;
+}
