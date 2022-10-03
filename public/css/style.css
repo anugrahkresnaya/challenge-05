@@ -1,6 +1,6 @@
-/* body {
+body {
   overflow-x: hidden;
-} */
+}
 /* navbar */
 
 .col-size {
@@ -141,4 +141,47 @@
   transition-duration: 1s;
   color: white;
   cursor: pointer;
+}
+
+/* car card */
+
+.card-property {
+  font-family: 'Overpass', sans-serif;
+}
+
+.car-image {
+  width: 270px;
+  margin: 55px 40px 47px;
+}
+
+.car-name {
+  font-size: 14px;
+}
+
+.car-price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.time-updated {
+  font-size: 14px;
+}
+
+.fa-clock {
+  color: #8A8A8A;
+}
+
+.btn-align {
+  align-self: center;
+  width: 143.5px;
+  height: 48px;
+}
+
+.btn-align p {
+  margin-bottom: 0;
+}
+
+.btn-edit {
+  width: 143.5px;
+  height: 48px;
 }
