@@ -13,7 +13,7 @@
 <body>
   <div class="row">
     <div class="col-auto pe-0">
-      <div class="bg-primary vh-100 w-10 d-flex flex-column sticky-top navbar-left">
+      <div class="vh-100 w-10 d-flex flex-column sticky-top navbar-left">
         <div class="icon-container mt-3 mb-2">
           <img src="/images/Rectangle_63.png" alt="logo" class="logo-size">
         </div>
@@ -33,24 +33,33 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <form class="d-flex" role="search">
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          <form class="d-flex form-group search" role="search">
+            <span class="fa fa-search m-glass"></span>
+            <input class="form-control square" type="search" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            <button class="btn btn-outline-primary square" type="submit">Search</button>
           </form>
         </div>
       </nav>
-      <div class="row">
-        <div class="col-auto">
-          <div class="collapse collapse-horizontal" id="navbarToggleExternalContent">
+      <div class="row bg-light pe-0 padding-start">
+        <div class="col-auto pe-0 ps-0 me-4">
+          <div class="collapse collapse-horizontal nav-collapsed" id="navbarToggleExternalContent">
             <div class="p-4 vh-100 typo-size">
               <h5>cars</h5>
               <h5>List cars</h5>
             </div>
           </div>
         </div>
-        <div class="col bg-light vh-100">
+        <div class="col vh-100 pe-0 ps-0 col-size">
+          <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Cars</li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="#">List Car</a></li>
+            </ol>
+          </nav>
+          <div class="d-flex justify-content-between">
+            <h1 class="list-car-title">List Car</h1>
+            <button class="btn-blue">Add New Car</button>
+          </div>
           <div class="row">
             <div class="col">
               <div class="card">
@@ -102,8 +111,8 @@
                   <h5>Rp. 430.000/hari</h5>
                   <p>Updated at 4 Apr 2022, 09.00</p>
                   <div class="d-flex">
-                    <button>Delete</button>
-                    <button>Edit</button>
+                    <button class="button">Delete</button>
+                    <button class="button">Edit</button>
                   </div>
                 </div>
               </div>
