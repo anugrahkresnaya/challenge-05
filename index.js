@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+app.get('/addCar', (req, res) => {
+  res.render('addCar');
+});
+
 app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
