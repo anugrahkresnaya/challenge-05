@@ -1,0 +1,32 @@
+.form-container {
+  background-color: white;
+}
+
+.form-name {
+  margin-right: 204px;
+}
+
+.form-sewa {
+  margin-right: 150px;
+}
+
+.form-ukuran {
+  margin-right: 195px;
+}
+
+.form-foto {
+  margin-right: 213px;
+}
+
+select {
+  width: 339px;
+}
+
+.button-container {
+  margin-top: 458px;
+  padding-bottom: 40px;
+}
+
+.upload .upload-icon {
+  position: absolute;
+}
