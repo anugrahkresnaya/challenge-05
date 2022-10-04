@@ -2,9 +2,18 @@ body {
   font-family: 'Overpass', sans-serif;
 }
 
+.breadcrumb li {
+  font-size: 12px;
+}
+
 .title-header {
   font-size: 20px;
   font-weight: 700;
+}
+
+label {
+  font-size: 14px;
+  align-self: center;
 }
 
 .form-container {
@@ -12,11 +21,11 @@ body {
 }
 
 .form-name {
-  margin-right: 204px;
+  margin-right: 202px;
 }
 
 .form-sewa {
-  margin-right: 150px;
+  margin-right: 155px;
 }
 
 .form-ukuran {
@@ -24,7 +33,7 @@ body {
 }
 
 .form-foto {
-  margin-right: 213px;
+  margin-right: 211px;
 }
 
 select {
@@ -32,7 +41,7 @@ select {
 }
 
 .button-container {
-  margin-top: 458px;
+  margin-top: 480px;
   padding-bottom: 40px;
 }
 
