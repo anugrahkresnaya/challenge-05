@@ -1,0 +1,50 @@
+body {
+  font-family: 'Overpass', sans-serif;
+}
+
+.breadcrumb li {
+  font-size: 12px;
+}
+
+.title-header {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+label {
+  font-size: 14px;
+  align-self: center;
+}
+
+.form-container {
+  background-color: white;
+}
+
+.form-name {
+  margin-right: 202px;
+}
+
+.form-sewa {
+  margin-right: 155px;
+}
+
+.form-ukuran {
+  margin-right: 195px;
+}
+
+.form-foto {
+  margin-right: 211px;
+}
+
+select {
+  width: 339px;
+}
+
+.button-container {
+  margin-top: 480px;
+  padding-bottom: 40px;
+}
+
+.upload .upload-icon {
+  position: absolute;
+}
