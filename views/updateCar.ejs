@@ -20,7 +20,7 @@
           </nav>
           <h1 class="title-header">Update Car Information</h1>
           <div class="form-container me-3">
-            <form action="" method="" id="formValue">
+            <form action="/updateCar/<%= id %>" enctype="multipart/form-data" method="post">
               <div class="mb-3 pt-3 ps-3 d-flex">
                 <label for="#" class="form-name">Name</label>
                 <input type="text" name="name" class="form-control w-25" placeholder="Avanza">
@@ -41,7 +41,7 @@
                 <label for="" class="form-foto">Foto</label>
                 <input type="file" name="image" class="form-control w-25 upload" placeholder="https://placeimg.com/640/480/any" id="">
               </div>
-              <button class="btn btn-outline-primary me-3">Cancel</button>
+              <button type="button" class="btn btn-outline-primary me-3" onclick="window.location.replace('/')">Cancel</button>
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>
