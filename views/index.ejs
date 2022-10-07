@@ -1,71 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binar Car Rental Dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a5da55aa11.js" crossorigin="anonymous"></script>
+  <%- include('./partials/head.ejs') %>
 </head>
 <body>
   <div class="row">
-    <div class="col-auto pe-0">
-      <div class="vh-100 w-10 d-flex flex-column sticky-top navbar-left">
-        <div class="icon-container mt-3 mb-2">
-          <img src="/images/Rectangle_63.png" alt="logo" class="logo-size">
-        </div>
-        <div class="icon-container pe-1 ps-1 mt-2 mb-2">
-          <img src="/images/dashboard_icon.png" alt="dashboard icon" class="img-size">
-          <p>Dashboard</p>
-        </div>
-        <div class="icon-container pe-1 ps-1 mt-2 mb-2">
-          <img src="/images/fi_truck.png" alt="cars icon" class="img-size">
-          <p>Cars</p>
-        </div>
-      </div>
-    </div>
+    <%- include('./partials/sidebar.ejs') %>
     <div class="col" id="nav-size">
-      <nav class="navbar sticky-top navbar-light navbar-sticky-top">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="d-flex">
-            <form class="d-flex form-group search" role="search">
-              <span class="fa fa-search m-glass"></span>
-              <input class="form-control square" type="search" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-              <button class="btn btn-outline-primary square" type="submit">Search</button>
-            </form>
-            <div class="dropdown ms-3 me-1">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="images/profile.png" alt="">
-                Unis Badri
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <%- include('./partials/navbar.ejs') %> 
       <div class="row bg-light pe-0 padding-start">
-        <div class="col-auto pe-0 ps-0 me-4">
-          <div class="collapse collapse-horizontal nav-collapsed" id="navbarToggleExternalContent">
-            <div class="p-4 typo-size">
-              <h5>cars</h5>
-              <h5>List cars</h5>
-            </div>
-          </div>
-        </div>
+        <%- include('./partials/collapse.ejs') %> 
         <div class="col pe-0 ps-0 col-size">
+          <% if(message.length > 0) { %> 
+            <div class="alert alert-color alert-dismissible w-25 mx-auto text-center mt-3 fade show" role="alert">
+              <%= message %>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% } %> 
+          <% if(save.length > 0) { %> 
+            <div class="alert alert-success alert-dismissible w-25 mx-auto text-center mt-3 fade show" role="alert">
+              <%= save %>
+              <button type="button" class="btn-close btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% } %>
           <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb mt-5">
               <li class="breadcrumb-item fw-bold">Cars</li>
@@ -74,7 +31,9 @@
           </nav>
           <div class="d-flex justify-content-between mb-3">
             <h1 class="list-car-title">List Car</h1>
-            <button class="btn-blue"><i class="fa fa-plus" aria-hidden="true"></i>Add New Car</button>
+            <a href="/addCar">
+              <button class="btn-blue"><i class="fa fa-plus" aria-hidden="true"></i>Add New Car</button>
+            </a>
           </div>
           <nav class="mb-4">
             <a class="link-square me-3" aria-current="page" href="#">All</a>
@@ -83,231 +42,74 @@
             <a class="link-square" href="#">Large</a>
           </nav>
           <div class="row">
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
+            <% cars.forEach(car => { %>
+              <% const updatedAt = new Date(car.updatedAt) %>
+              <div class="col-auto">
+                <div class="card card-property mb-4">
+                  <img src="<%= car.image %>" alt="car image" class="car-image">
+                  <div class="card-body">
+                    <p class="car-name mb-2"><%= car.name %>/<%= car.size %> </p>
+                    <h5 class="car-price">Rp. <%= car.price %>/hari</h5>
+                    <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at <%= updatedAt.getDate() %> <%= updatedAt.toLocaleString('en-US', {month: 'short'});%> <%= updatedAt.getFullYear() %>, <%= updatedAt.getHours() %>.<%= updatedAt.getMinutes() %></p>
+                    <div class="d-flex">
+                      <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3" data-id="<%= car.id %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <img src="/images/fi_trash.png" />
+                        Delete
+                      </button>
+                      <a href="/updateCar/<%= car.id %>">
+                        <button type="button" class="btn btn-success btn-edit">
+                          <i class="fa-regular fa-pen-to-square"></i>
+                          Edit
+                        </button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-auto">
-              <div class="card card-property">
-                <img src="/images/car_image.png" alt="car image" class="car-image">
-                <div class="card-body">
-                  <p class="car-name mb-2">Nama tipe/mobil</p>
-                  <h5 class="car-price">Rp. 430.000/hari</h5>
-                  <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at 4 Apr 2022, 09.00</p>
-                  <div class="d-flex">
-                    <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3">
-                      <img src="/images/fi_trash.png" />
-                      Delete
-                    </button>
-                    <button type="button" class="btn btn-success btn-edit">
-                      <i class="fa-regular fa-pen-to-square"></i>
-                      Edit
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% }) %>
           </div>
         </div> 
       </div>
     </div>  
   </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="d-flex flex-column gap-3 text-center">
+            <image class="mx-auto" src="/images/modal_image.png" height="121px" />
+            <div class="fw-bolder">Menghapus Data Mobil</div>
+            <div class="fw-light">
+              Setelah dihapus, data mobil tidak dapat dikembalikan. Yakin ingin menghapus?
+            </div>
+        </div>
+        </div>
+        <div class="m-auto pb-3">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <a id="modalDeleteButton" class="btn btn-danger">Delete</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+  <script>
+    $("#exampleModal").on('show.bs.modal', function(event) {
+      var button = $(event.relatedTarget) //Button that triggered the modal
+      var id = button.data('id') //need to find the button and get id
+      var url = '/delete/' + id; //url
+
+      // console.log('data-id= ' + id) 
+      // console.table(button, id)
+
+      document.getElementById('modalDeleteButton').setAttribute('href', `/deleteCar/${id}`);
+    })
+  </script>
 </body>
 </html>

@@ -1,107 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Binar Car Rental Dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/addForm.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a5da55aa11.js" crossorigin="anonymous"></script>
+  <%- include('./partials/head.ejs') %> 
 </head>
 <body>
   <div class="row">
-    <div class="col-auto pe-0">
-      <div class="vh-100 w-10 d-flex flex-column sticky-top navbar-left">
-        <div class="icon-container mt-3 mb-2">
-          <img src="/images/Rectangle_63.png" alt="logo" class="logo-size">
-        </div>
-        <div class="icon-container pe-1 ps-1 mt-2 mb-2">
-          <img src="/images/dashboard_icon.png" alt="dashboard icon" class="img-size">
-          <p>Dashboard</p>
-        </div>
-        <div class="icon-container pe-1 ps-1 mt-2 mb-2">
-          <img src="/images/fi_truck.png" alt="cars icon" class="img-size">
-          <p>Cars</p>
-        </div>
-      </div>
-    </div>
+    <%- include('./partials/sidebar.ejs') %> 
     <div class="col" id="nav-size">
-      <nav class="navbar sticky-top navbar-light navbar-sticky-top">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="d-flex">
-            <form class="d-flex form-group search" role="search">
-              <span class="fa fa-search m-glass"></span>
-              <input class="form-control square" type="search" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
-              <button class="btn btn-outline-primary square" type="submit">Search</button>
-            </form>
-            <div class="dropdown ms-3 me-5">
-              <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="images/profile.png" alt="">
-                Unis Badri
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <%- include('./partials/navbar.ejs') %>
       <div class="row bg-light pe-0 padding-start">
-        <div class="col-auto pe-0 ps-0 me-4">
-          <div class="collapse collapse-horizontal nav-collapsed" id="navbarToggleExternalContent">
-            <div class="p-4 typo-size">
-              <h5>cars</h5>
-              <h5>List cars</h5>
-            </div>
-          </div>
-        </div>
+        <%- include('./partials/collapse.ejs') %> 
         <div class="col pe-0 ps-0 col-size">
           <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb mt-5">
               <li class="breadcrumb-item fw-bold">Cars</li>
-              <li class="breadcrumb-item fw-bold" id="list-car-breadcrumb" aria-current="page"><a href="#">List Car</a></li>
+              <li class="breadcrumb-item fw-bold" id="list-car-breadcrumb" aria-current="page"><a href="/">List Car</a></li>
               <li class="breadcrumb-item" id="list-car-breadcrumb" aria-current="page"><a href="#">Update Car Information</a></li>
             </ol>
           </nav>
           <h1 class="title-header">Update Car Information</h1>
           <div class="form-container me-3">
-            <form action="#" method="post">
+            <form action="/updateCar/<%= id %>" enctype="multipart/form-data" method="post">
               <div class="mb-3 pt-3 ps-3 d-flex">
                 <label for="#" class="form-name">Name</label>
-                <input type="text" class="form-control w-25" placeholder="Avanza">
+                <input type="text" name="name" class="form-control w-25" placeholder="Avanza">
               </div>
               <div class="mb-3 ps-3  d-flex">
                 <label for="" class="form-sewa">Sewa Per Hari</label>
-                <input type="number" name="" class="form-control w-25" placeholder="Rp 0,-" class="w-25" id="">
+                <input type="number" name="price" class="form-control w-25" placeholder="Rp 0,-" class="w-25" id="">
               </div>
               <div class="mb-3 ps-3  d-flex">
                 <label for="" class="form-ukuran">Ukuran</label>
-                <select class="form-select w-25">
-                  <option value="1" selected>Small</option>
-                  <option value="2">Medium</option>
-                  <option value="3">Large</option>
+                <select name="size" class="form-select w-25">
+                  <option value="Small" selected>Small</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Large">Large</option>
                 </select>
               </div>
               <div class="mb-3 pb-3 ps-3 form-group d-flex">
                 <label for="" class="form-foto">Foto</label>
-                <input type="file" name="" class="form-control w-25 upload" placeholder="https://placeimg.com/640/480/any" id="">
+                <input type="file" name="image" class="form-control w-25 upload" placeholder="https://placeimg.com/640/480/any" id="">
+              </div>
+              <div class="bg-light button-container-update">
+                <button type="button" class="btn btn-outline-primary me-3" onclick="window.location.replace('/')">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
               </div>
             </form>
-          </div>
-          <div class="button-container d-flex">
-            <button class="btn btn-outline-primary me-3">Cancel</button>
-            <button class="btn btn-primary">Save</button>
           </div>
         </div> 
       </div>
