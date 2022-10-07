@@ -41,10 +41,20 @@ select {
 }
 
 .button-container {
-  margin-top: 462px;
+  padding-top: 448px;
+  padding-bottom: 40px;
+}
+
+.button-container-update {
+  padding-top: 470px;
   padding-bottom: 40px;
 }
 
 .upload .upload-icon {
   position: absolute;
+}
+
+.alert-color {
+  color: white !important;
+  background-color: black !important;
 }

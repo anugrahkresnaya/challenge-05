@@ -11,6 +11,18 @@
       <div class="row bg-light pe-0 padding-start">
         <%- include('./partials/collapse.ejs') %> 
         <div class="col pe-0 ps-0 col-size">
+          <% if(message.length > 0) { %> 
+            <div class="alert alert-color alert-dismissible w-25 mx-auto text-center mt-3 fade show" role="alert">
+              <%= message %>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% } %> 
+          <% if(save.length > 0) { %> 
+            <div class="alert alert-success alert-dismissible w-25 mx-auto text-center mt-3 fade show" role="alert">
+              <%= save %>
+              <button type="button" class="btn-close btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          <% } %>
           <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb mt-5">
               <li class="breadcrumb-item fw-bold">Cars</li>
@@ -33,7 +45,7 @@
             <% cars.forEach(car => { %>
               <% const updatedAt = new Date(car.updatedAt) %>
               <div class="col-auto">
-                <div class="card card-property">
+                <div class="card card-property mb-4">
                   <img src="<%= car.image %>" alt="car image" class="car-image">
                   <div class="card-body">
                     <p class="car-name mb-2"><%= car.name %>/<%= car.size %> </p>
@@ -41,7 +53,6 @@
                     <p class="time-updated"><i class="fa-regular fa-clock me-2"></i>Updated at <%= updatedAt.getDate() %> <%= updatedAt.toLocaleString('en-US', {month: 'short'});%> <%= updatedAt.getFullYear() %>, <%= updatedAt.getHours() %>.<%= updatedAt.getMinutes() %></p>
                     <div class="d-flex">
                       <button type="button" class="btn btn-outline-danger btn-align mb-2 me-3" data-id="<%= car.id %>" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <!-- data-id="" onclick="$('#dataid').val($(this).data('id')); $('#exampleModal').modal('show');" -->
                         <img src="/images/fi_trash.png" />
                         Delete
                       </button>
@@ -66,10 +77,6 @@
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <!-- <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div> -->
         <div class="modal-body">
           <div class="d-flex flex-column gap-3 text-center">
             <image class="mx-auto" src="/images/modal_image.png" height="121px" />
@@ -98,8 +105,8 @@
       var id = button.data('id') //need to find the button and get id
       var url = '/delete/' + id; //url
 
-      console.log('data-id= ' + id) //15
-      console.table(button, id)
+      // console.log('data-id= ' + id) 
+      // console.table(button, id)
 
       document.getElementById('modalDeleteButton').setAttribute('href', `/deleteCar/${id}`);
     })
