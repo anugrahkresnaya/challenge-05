@@ -20,3 +20,26 @@ create car
 list car
 ![image](https://user-images.githubusercontent.com/55924803/194540297-dd3fb645-b16f-41f1-9cbc-384575e6cf99.png)
 
+## Packages
+- axios
+- cloudinary
+- connect-flash
+- ejs
+- express
+- express-session
+- multer
+- nodemon
+
+## Step to run
+- clone the repositories
+  ```
+  git clone https://github.com/anugrahkresnaya/challenge-05.git
+  ```
+- install the dependencies
+  ```
+  npm install or yarn install
+  ```
+- run the server
+  ```
+  npm dev or yarn dev
+  ```
