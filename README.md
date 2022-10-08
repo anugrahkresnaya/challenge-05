@@ -6,6 +6,10 @@
 ## Link
 http://localhost:8000/
 
+Link to backend: http://localhost:8002/
+
+backend repository: https://github.com/anugrahkresnaya/challenge-05-backend-side
+
 ## Endpoint for Frontend
 - Get all cars: /
 - Create car: /addCar
