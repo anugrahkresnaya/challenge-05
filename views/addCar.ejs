@@ -22,25 +22,25 @@
           <div class="form-container me-3">
             <form action="/addCar" enctype="multipart/form-data" method="POST">
               <div class="mb-3 pt-3 ps-3 d-flex">
-                <label for="nameCar" class="form-name">Name</label>
-                <input type="text" name="name" id="nameCar" class="form-control w-25" placeholder="Avanza">
+                <label for="nameCar" class="form-name">Name<span class="text-danger">*</span></label>
+                <input type="text" name="name" id="nameCar" class="form-control w-25" placeholder="Avanza" required>
               </div>
               <div class="mb-3 ps-3  d-flex">
-                <label for="sewaCar" class="form-sewa">Sewa Per Hari</label>
-                <input type="number" name="price" id="sewaCar" class="form-control w-25" placeholder="Rp 0,-" class="w-25" id="">
+                <label for="sewaCar" class="form-sewa">Sewa Per Hari<span class="text-danger">*</span></label>
+                <input type="number" name="price" id="sewaCar" class="form-control w-25" placeholder="Rp 0,-" class="w-25" required>
               </div>
               <div class="mb-3 ps-3  d-flex">
-                <label for="ukuranCar" class="form-ukuran">Ukuran</label>
-                <select name="size" class="form-select w-25" id="ukuranCar">
+                <label for="ukuranCar" class="form-ukuran">Ukuran<span class="text-danger">*</span></label>
+                <select name="size" class="form-select w-25" id="ukuranCar" required>
                   <option value="Small" selected>Small</option>
                   <option value="Medium">Medium</option>
                   <option value="Large">Large</option>
                 </select>
               </div>
               <div class="mb-3 pb-3 ps-3 form-group d-flex">
-                <label for="uploadCar" class="form-foto">Foto</label>
+                <label for="uploadCar" class="form-foto">Foto<span class="text-danger">*</span></label>
                 <div class="w-25">
-                  <input type="file" id="uploadCar" name="image" class="form-control upload" placeholder="https://placeimg.com/640/480/any" id="">
+                  <input type="file" id="uploadCar" name="image" class="form-control upload" placeholder="https://placeimg.com/640/480/any" required>
                   <span class="form-text flex-column">
                     File size max. 2MB
                   </span>
